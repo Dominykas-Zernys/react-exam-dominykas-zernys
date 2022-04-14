@@ -1,5 +1,11 @@
+import Header from '../../components/Header/Header';
+
 function Add() {
-  return <div>Add</div>;
+  return (
+    <div>
+      <Header headerType='contentPage' />
+    </div>
+  );
 }
 
 export default Add;

@@ -1,5 +1,11 @@
+import Header from '../../components/Header/Header';
+
 function Home() {
-  return <div>Home</div>;
+  return (
+    <div>
+      <Header headerType='contentPage' />
+    </div>
+  );
 }
 
 export default Home;
