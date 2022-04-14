@@ -1,0 +1,14 @@
+.header{
+    background-color:rgb(113, 103, 207);
+}
+
+.flexContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.navigation > a{
+    padding: 20px
+}
