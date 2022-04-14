@@ -12,8 +12,8 @@ function Login() {
   const { login } = useContext(AuthContext);
   const history = useHistory();
 
-  function loginHandler() {
-    login();
+  function loginHandler(token) {
+    login(token);
     setTimeout(() => {
       history.push('/');
     }, 2000);
