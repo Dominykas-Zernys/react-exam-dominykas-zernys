@@ -19,6 +19,8 @@
     font-size: 1.1rem;
     border: 1px solid rgb(135, 206, 154);
     transition: background-color 0.5s, border 0.5s;
+    margin-right: 10px;
+    text-align: center;
 }
 
 .navigation > a:hover{
@@ -31,4 +33,27 @@
     background-color: rgb(41, 77, 46);
     border: 1px solid rgb(41, 77, 46);
 }
+
+@media only screen and (max-width: 426px) {
+    .header{
+        height: 180px;
+    }
+    
+    .flexContainer{
+        flex-direction: column;
+    }
+
+    .navigation{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .navigation > a{
+        width: 85%;
+        margin: 0;
+        height: 23px;
+    }
+  }
 

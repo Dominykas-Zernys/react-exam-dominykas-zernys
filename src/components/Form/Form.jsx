@@ -28,6 +28,8 @@ function Form(props) {
     );
     if (serverResponse) {
       props.setActionSuccess(true);
+      setFirstValue('');
+      setSecondValue('');
       props.loginHandler && props.loginHandler(serverResponse.token);
       return;
     }
@@ -69,7 +71,7 @@ function Form(props) {
         ) : (
           <input
             className={css.input}
-            type='text'
+            type='password'
             value={secondValue}
             onChange={(e) => {
               props.setActionFail(false);

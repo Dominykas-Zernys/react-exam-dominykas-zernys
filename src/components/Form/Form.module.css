@@ -45,3 +45,21 @@
 .redText{
     color: rgb(192, 52, 52)
 }
+
+@media only screen and (max-width: 768px) {
+    .form{
+        min-width: 70%
+    }
+  }
+
+  @media only screen and (max-width: 426px) {
+    .form{
+        min-width: 70%;
+        margin-top: 0;
+        padding-bottom: 65px;
+    }
+
+    .form > button{
+        width: 100%;
+    }
+  }
