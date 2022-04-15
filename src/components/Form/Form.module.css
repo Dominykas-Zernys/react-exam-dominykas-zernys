@@ -36,6 +36,7 @@
 
 .infoText{
     position: absolute;
+    max-width: 70%;
 }
 
 .greenText{
@@ -46,20 +47,48 @@
     color: rgb(192, 52, 52)
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1234px) {
     .form{
         min-width: 70%
     }
   }
+@media only screen and (max-width: 900px) {
+    .infoText{
+        bottom: 10px;
+    }
+  }
 
+@media only screen and (max-width: 768px) {
+    .infoText{
+        max-width: 60%;
+    }
+  }
+
+@media only screen and (max-width: 492px) {
+    .infoText{
+        max-width: 80%;
+    }
+  }
+  
   @media only screen and (max-width: 426px) {
     .form{
         min-width: 70%;
         margin-top: 0;
         padding-bottom: 65px;
     }
-
+    
     .form > button{
         width: 100%;
+    }
+    
+    .infoText{
+        max-width: 90%;
+        bottom: auto;
+    }
+}
+
+@media only screen and (max-width: 330px) {
+    .form{
+        padding-bottom: 80px;
     }
   }
