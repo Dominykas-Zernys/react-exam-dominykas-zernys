@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&display=swap');
+
+*{
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+body{
+    margin: 0;
+    background-color: rgb(249, 242, 226);
+}
+
+h1,h2{
+    text-transform: capitalize;
+}
+
+h1,h2,h3,h4,h5,h6{
+    margin: 0;
+    text-align: center;
+}
+
+p{
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+div > nav > .active{
+    border: 1px solid rgb(41, 77, 46);
+}
