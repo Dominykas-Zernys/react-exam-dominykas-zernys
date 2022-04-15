@@ -1,10 +1,13 @@
 import { useContext, useEffect, useState } from 'react';
 import Header from '../../components/Header/Header';
-import SkillCard from '../../components/SkillCard';
+import SkillCard from '../../components/SkillCard/SkillCard';
 import SkillCards from '../../components/SkillCards/SkillCards';
 import Wrapper from '../../components/Wrapper/Wrapper';
 import fetchGet from '../../helpers/fetchGet';
 import AuthContext from '../../store/AuthContext';
+import LoadingElement from '../../UI/LoadingElement/LoadingElement';
+import LogoutButton from '../../UI/LogoutButton/LogoutButton';
+import PageTitle from '../../UI/PageTitle/PageTitle';
 
 function Home() {
   const [skillsArr, setSkillsArr] = useState([]);
@@ -26,22 +29,27 @@ function Home() {
   return (
     <div>
       <Header headerType='contentPage' />
-      <Wrapper>
-        <SkillCards>
-          {loadingArr && <div>loading...</div>}
-          {!loadingArr && skillsArr.length === 0 ? (
-            <div>No skills found</div>
-          ) : (
-            skillsArr.map((skillObj) => (
-              <SkillCard
-                title={skillObj.title}
-                description={skillObj.description}
-                key={skillObj.id}
-              />
-            ))
-          )}
-        </SkillCards>
-      </Wrapper>
+      {loadingArr ? (
+        <LoadingElement loadingText='Loading...' />
+      ) : (
+        <Wrapper>
+          <PageTitle title='Skills' />
+          <LogoutButton />
+          <SkillCards>
+            {!loadingArr && skillsArr.length === 0 ? (
+              <div>No skills found</div>
+            ) : (
+              skillsArr.map((skillObj) => (
+                <SkillCard
+                  title={skillObj.title}
+                  description={skillObj.description}
+                  key={skillObj.id}
+                />
+              ))
+            )}
+          </SkillCards>
+        </Wrapper>
+      )}
     </div>
   );
 }

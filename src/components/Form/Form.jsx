@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import fetchPost from '../../helpers/fetchPost';
 import AuthContext from '../../store/AuthContext';
+import SubmitButton from '../../UI/SubmitButton/SubmitButton';
 import css from './Form.module.css';
 
 function Form(props) {
@@ -18,7 +19,7 @@ function Form(props) {
     e.preventDefault();
     props.setActionFail(false);
     props.setActionSuccess(false);
-    if (!firstValue.length || !secondValue.length)
+    if (firstValue.length === 0 || secondValue.length === 0)
       return props.setActionFail(true);
     const serverResponse = await fetchPost(
       objToSend,
@@ -34,47 +35,60 @@ function Form(props) {
   }
 
   return (
-    <form onSubmit={submitHandler}>
-      <h1>{props.formType}</h1>
-      <div>
-        <label htmlFor=''>
+    <form className={css.form} onSubmit={submitHandler}>
+      <h1 className={css.formTitle}>{props.formType}</h1>
+      <div className={css.inputsWrapper}>
+        <label className={css.label} htmlFor=''>
           {props.formType === 'add skill' ? 'Title:' : 'Email:'}
         </label>
         <input
+          className={css.input}
           type={props.formType === 'add skill' ? 'text:' : 'email'}
           value={firstValue}
           onChange={(e) => {
+            props.setActionFail(false);
+            props.setActionSuccess(false);
             setFirstValue(e.target.value);
           }}
         />
-        <label htmlFor=''>
+        <label className={css.label} htmlFor=''>
           {props.formType === 'add skill' ? 'Description:' : 'Password:'}
         </label>
         {props.formType === 'add skill' ? (
           <textarea
+            className={css.input}
             value={secondValue}
             onChange={(e) => {
+              props.setActionFail(false);
+              props.setActionSuccess(false);
               setSecondValue(e.target.value);
             }}
             cols='30'
-            rows='10'
+            rows='5'
           ></textarea>
         ) : (
           <input
+            className={css.input}
             type='text'
             value={secondValue}
             onChange={(e) => {
+              props.setActionFail(false);
+              props.setActionSuccess(false);
               setSecondValue(e.target.value);
             }}
           />
         )}
       </div>
-      <button>{props.formType}</button>
-      <div>
-        <h2>
-          {props.actionSuccess && props.successMsg}
-          {props.actionFail && props.failMsg}
-        </h2>
+      <SubmitButton buttonTitle={props.formType} />
+      <div className={css.infoTextWrapper}>
+        {props.actionSuccess && (
+          <h3 className={`${css.greenText} ${css.infoText}`}>
+            {props.successMsg}
+          </h3>
+        )}
+        {props.actionFail && (
+          <h3 className={`${css.redText} ${css.infoText}`}>{props.failMsg}</h3>
+        )}
       </div>
     </form>
   );

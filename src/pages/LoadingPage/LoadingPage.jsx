@@ -1,14 +1,14 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
 import Wrapper from '../../components/Wrapper/Wrapper';
+import LoadingElement from '../../UI/LoadingElement/LoadingElement';
 
 function LoadingPage() {
   return (
     <div>
-      <Header headerType='contentPage' />
-      <Wrapper>
-        <div>checking authorization...</div>
-      </Wrapper>
+      <Header headerType='empty' />
+
+      <LoadingElement loadingText='Checking authorization...' />
     </div>
   );
 }

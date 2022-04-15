@@ -1,0 +1,38 @@
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+}
+
+.loggedInWrapper{
+    width: 40%;
+    border: 1px solid rgb(41, 77, 46);
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 180px;
+    box-shadow: 5px 5px 10px rgb(41, 77, 46);
+    background-color: rgb(226, 249, 232);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    line-height: 2.5rem
+}
+
+.button{
+    border: none;
+    padding: 0;
+    background-color: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    padding: 0.2rem 0.5rem;
+    background-color: rgb(135, 206, 154);
+    border-radius: 10px;
+    transition: background-color 0.5s; 
+}
+
+.button:hover{
+    color: rgb(202, 236, 207);
+    background-color: rgb(41, 77, 46);
+    transition: background-color 0.5s; 
+}

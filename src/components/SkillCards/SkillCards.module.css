@@ -1,0 +1,7 @@
+.skillCards{
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 90%;
+    gap: 30px;
+}

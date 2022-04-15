@@ -3,6 +3,8 @@ import Wrapper from '../Wrapper/Wrapper';
 import css from './Header.module.css';
 
 function Header({ headerType }) {
+  const addActiveClass = ({ isActive }) => (isActive ? 'active' : 'inactive');
+
   return (
     <header className={css.header}>
       <Wrapper>
@@ -10,14 +12,22 @@ function Header({ headerType }) {
           <img src='img/logo.svg' alt='' />
           {headerType === 'authPage' && (
             <nav className={css.navigation}>
-              <NavLink to={'/login'}>Login</NavLink>
-              <NavLink to={'/register'}>Register</NavLink>
+              <NavLink className={addActiveClass} to={'/login'}>
+                Login
+              </NavLink>
+              <NavLink className={addActiveClass} to={'/register'}>
+                Register
+              </NavLink>
             </nav>
           )}
           {headerType === 'contentPage' && (
             <nav className={css.navigation}>
-              <NavLink to={'/'}>Home</NavLink>
-              <NavLink to={'/add'}>Add</NavLink>
+              <NavLink exact className={addActiveClass} to={'/'}>
+                Home
+              </NavLink>
+              <NavLink className={addActiveClass} to={'/add'}>
+                Add
+              </NavLink>
             </nav>
           )}
         </div>

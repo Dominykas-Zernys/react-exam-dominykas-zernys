@@ -8,6 +8,10 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import AuthContext from './store/AuthContext';
 import fetchGet from './helpers/fetchGet';
+import LoadingPage from './pages/LoadingPage/LoadingPage';
+import Header from './components/Header/Header';
+import LoadingElement from './UI/LoadingElement/LoadingElement';
+import ErrorPage from './pages/ErrorPage/ErrorPage';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -42,17 +46,20 @@ function App() {
       <div className='App'>
         <Switch>
           <Route path='/register'>
-            <Register />
+            <Register loading={loading} />
           </Route>
           <Route path='/login'>
-            <Login />
+            <Login loading={loading} />
           </Route>
           <ProtectedRoute loading={loading} path='/' exact>
             <Home />
           </ProtectedRoute>
-          <ProtectedRoute path='/add'>
+          <ProtectedRoute loading={loading} path='/add'>
             <Add />
           </ProtectedRoute>
+          <Route path='*'>
+            <ErrorPage />
+          </Route>
         </Switch>
       </div>
     </AuthContext.Provider>
