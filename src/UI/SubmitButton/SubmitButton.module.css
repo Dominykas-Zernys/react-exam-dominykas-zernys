@@ -20,3 +20,9 @@
 .submitBtn:active{
     background-color: rgb(26, 94, 43)
 }
+
+@media only screen and (max-width: 330px) {
+    .submitBtn{
+        margin-bottom: 0;
+    }
+  }
